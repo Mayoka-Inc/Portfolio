@@ -11,7 +11,7 @@ const Project = ({ projects }: { projects: Projects[] | null }) => {
           <div
             key={index}
             id={project.name}
-            className="my-3 rounded-lg border border-gray-200 bg-white p-6 shadow hover:border-indigo-500 dark:border-gray-700 dark:bg-gray-800 dark:hover:border-indigo-500">
+            className="my-3 rounded-lg border border-gray-200 bg-white p-6 shadow hover:border-primary-500 dark:border-gray-700 dark:bg-gray-800 dark:hover:border-primary-500">
             <div className="flex justify-between">
               <div className="flex items-center text-lg font-semibold tracking-tight">
                 {project.name}
@@ -53,7 +53,7 @@ const Project = ({ projects }: { projects: Projects[] | null }) => {
 
               {project.stargazerCount > 0 && (
                 <div className="flex items-center">
-                  <StarIcon className="w-5 h-5 mr-2 text-indigo-500" />
+                  <StarIcon className="w-5 h-5 mr-2 text-primary-500" />
                   {project.stargazerCount}
                 </div>
               )}

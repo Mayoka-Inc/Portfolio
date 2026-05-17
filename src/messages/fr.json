@@ -1,0 +1,143 @@
+{
+  "main": {
+    "home": "Accueil",
+    "about": "À propos",
+    "projects": "Projets"
+  },
+  "footer": {
+    "my-setup": "Mes dotfiles",
+    "sourcecode": "Code source",
+    "contact": "Contact",
+    "analytics": "Analytique",
+    "sitemap": "Plan du site",
+    "powered": "Propulsé par ",
+    "and": "et ",
+    "hosted": "Hébergé sur "
+  },
+  "index-page": {
+    "title": "Ingénieur Logiciel et Étudiant à",
+    "intro": "J'essaie de construire un web plus rapide. J'apprends le développement web, .NET Core et React / Next.js.",
+    "posts": {
+      "read-all": "Lire tous les articles",
+      "1": {
+        "title": "Premier Commit",
+        "slug": "initial-commit"
+      },
+      "2": {
+        "title": "La meilleure configuration de terminal PowerShell",
+        "slug": "terminal-setup"
+      },
+      "3": {
+        "title": "Comment déployer une application web Fullstack sur Vercel ?",
+        "slug": "vercel-deployment"
+      }
+    }
+  },
+  "about-page": {
+    "text-1": "Salut, je suis Alex. J'ai {age} ans \net je viens d'Allemagne. J'habite en Rhénanie-du-Nord-Westphalie et je passe mon temps libre \nà jouer du piano, faire du sport ou profiter de ma famille et de mes amis.",
+    "text-2": "J'ai commencé à travailler avec des ordinateurs dès mon plus jeune âge et j'ai commencé \nla programmation à l'école. Après mon diplôme, j'ai commencé mes études en alternance chez \nNetgo GmbH où je travaille et à la Westfälische Hochschule où j'étudie.",
+    "text-3": "J'apprends actuellement .NET Core et Angular, mais mon framework préféré est \nNextJs. À l'avenir, je souhaite construire mon propre cluster Kubernetes avec \ndes services backend, une intégration de base de données et un frontend solide combinés \npar Nginx.",
+    "website": "Site web",
+    "tools": {
+      "title": "Outils",
+      "text": "Ce sont les outils que j'utilise presque quotidiennement. J'aime vraiment découvrir de nouvelles technologies qui améliorent mon flux de travail.",
+      "tailwind": "En ce qui concerne le CSS, j'utilise toujours TailwindCSS. C'est un excellent outil pour styliser votre site web très rapidement.",
+      "next": "Mon framework de prédilection pour construire des applications web. La qualité du code est fantastique.",
+      "vercel": "Le moyen le plus simple de déployer votre site web. Je l'utilise pour tous mes projets.",
+      "vscode": "VS Code est l'éditeur de texte que j'utilise le plus souvent, compte tenu de sa gamme d'extensions."
+    },
+    "uses": {
+      "title": "Mon Matériel",
+      "text": "Voici la technologie que j'utilise actuellement pour coder. La plupart ont été accumulées au cours des dernières années.",
+      "office": "Poste de travail",
+      "other-tech": "Autre technologie",
+      "and": "et",
+      "configuration": "Configuration"
+    },
+    "timeline": {
+      "title": "Parcours",
+      "learn-more": "En savoir plus sur netgo",
+      "1": {
+        "date": "Juillet 2021",
+        "title": "Diplôme de fin d'études",
+        "description": "J'ai terminé l'école :D"
+      },
+      "2": {
+        "title": "Études en alternance chez netgo / Westfälische Hochschule",
+        "description": "J'ai commencé mon premier emploi en tant qu'apprenti ingénieur logiciel chez netgo. En parallèle, j'ai étudié les systèmes logiciels (Informatique, B. SC.)."
+      }
+    }
+  },
+  "404": {
+    "title": "Page non trouvée",
+    "description": "Pourquoi afficher un 404 générique quand je peux le rendre mystérieux ? Il semble \nque vous ayez trouvé quelque chose qui existait auparavant, ou que vous ayez mal \northographié quelque chose. Je parie sur la faute de frappe. Pouvez-vous \nvérifier cette URL ?",
+    "return-home": "Retour à l'accueil"
+  },
+  "error": {
+    "title": "Une erreur est survenue",
+    "description": "Je suis désolé, mais quelque chose s'est mal passé. Veuillez réessayer plus tard.",
+    "return-home": "Retour à l'accueil"
+  },
+  "blog": {
+    "description": "J'écris en ligne depuis 2022, principalement sur le développement web et des sujets divers. Au total, j'ai écrit {amount} articles sur mon blog. Utilisez la recherche ci-dessous pour filtrer par titre.",
+    "no-posts": "Aucun article trouvé.",
+    "all-posts": "Tous les articles",
+    "search": "Rechercher",
+    "filter": {
+      "by-name": "Par nom",
+      "by-tag": "Par tag"
+    },
+    "views": "vues",
+    "reading-time": "{minutes} min de lecture"
+  },
+  "guestbook": {
+    "title": "Livre d'or",
+    "login": "Se connecter avec ",
+    "logout": "Se déconnecter",
+    "form": {
+      "title": "Signer le livre d'or",
+      "description": "Partagez un message pour un futur visiteur de mon site.",
+      "input": "Votre message...",
+      "submit": "Envoyer",
+      "info": "Vos informations ne sont utilisées que pour afficher votre nom."
+    },
+    "success": "Hourra ! Merci d'avoir signé mon livre d'or.",
+    "error": "Veuillez entrer un message.",
+    "delete": "Supprimer"
+  },
+  "dashboard": {
+    "unauthorized": "Vous n'êtes pas autorisé à consulter cette page.",
+    "logout": "Se déconnecter",
+    "logged-in": "Connecté en tant que",
+    "stats": "Stats",
+    "top-tracks": "Meilleurs titres Spotify",
+    "metrics": {
+      "blog-views": "Vues du blog",
+      "guestbook-entries": "Entrées du livre d'or",
+      "posts-count": "Nombre total d'articles (EN)"
+    }
+  },
+  "projects": {
+    "not-found": "Aucun projet trouvé",
+    "see-more": "Voir tous les projets",
+    "all-repos": "Tous les dépôts"
+  },
+  "not-playing": "Pas de musique en cours",
+  "command-palette": {
+    "settings": "Paramètres",
+    "socials": "Réseaux sociaux",
+    "switch-theme": "Changer le thème",
+    "switch-language": "Changer de langue (fr)",
+    "search-placeholder": "Rechercher...",
+    "no-results": "Aucun résultat"
+  },
+  "stats": {
+    "title": "Mes stats GitHub",
+    "stars": "Total d'étoiles obtenues",
+    "commits": "Total de commits",
+    "prs": "Total de PRs",
+    "issues": "Total de problèmes",
+    "contributed": "Contribué à",
+    "top-languages": "Langages principaux"
+  }
+}

@@ -58,7 +58,7 @@ const PostList = ({ allBlogs }: { allBlogs: BlogPost[] }) => {
           onChange={(e) => updateSearchParams('search', e.target.value)}
           placeholder={t('search')}
           defaultValue={searchQuery ?? ''}
-          className="block w-full rounded-md border border-gray-200 bg-white px-4 py-2 text-gray-900 focus:border-indigo-500 focus:ring-indigo-500 dark:border-gray-800 dark:bg-gray-700 dark:text-gray-100 dark:focus:border-blue-500"
+          className="block w-full rounded-md border border-gray-200 bg-white px-4 py-2 text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-800 dark:bg-gray-700 dark:text-gray-100 dark:focus:border-blue-500"
         />
       </div>
       <h2 className="mb-5 mt-8 text-2xl font-bold tracking-tight text-black dark:text-white md:text-4xl">

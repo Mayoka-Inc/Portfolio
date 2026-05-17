@@ -7,6 +7,7 @@ import { NextIntlClientProvider } from 'next-intl';
 import { ThemeProvider } from 'next-themes';
 import dynamic from 'next/dynamic';
 import { notFound } from 'next/navigation';
+import { Suspense } from 'react';
 
 import env from '@/env.mjs';
 import AnalyticsWrapper from '@/components/analytics';
@@ -131,7 +132,14 @@ export default async function RootLayout({
   let session = null;
   try {
     session = await auth();
-  } catch (error) {
+  } catch (error: unknown) {
+    const err = error as { $$typeof?: symbol; digest?: string };
+    if (
+      err.$$typeof === Symbol.for('react.postpone') ||
+      err.digest?.includes('NEXT_PRERENDER_ERROR')
+    ) {
+      throw error;
+    }
     console.error('Error fetching auth session in layout:', error);
   }
 
@@ -146,14 +154,18 @@ export default async function RootLayout({
           locale={params.locale}
           timeZone="Europe/Berlin"
           now={new Date()}>
-          <ThemeProvider attribute="class">
+          <ThemeProvider
+            attribute="class"
+            themes={['light', 'dark', 'theme-green', 'theme-red', 'theme-blind']}>
             <a
               href="#skip"
               className="absolute -top-8 left-1/4 -translate-y-12 px-4 py-2 transition-transform duration-200 focus:translate-y-3">
               Skip to content
             </a>
-            <CommandPalette session={session} />
-            <Navbar posts={getBlogPosts()} />
+            <Suspense>
+              <CommandPalette session={session} />
+              <Navbar posts={getBlogPosts()} />
+            </Suspense>
             <main
               className="mx-auto mb-16 flex max-w-3xl flex-col justify-center px-8 dark:bg-gray-800 md:mt-6 md:px-0"
               id="skip">

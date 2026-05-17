@@ -21,7 +21,7 @@ interface ProjectsProps {
 }
 
 export function generateStaticParams() {
-  return [{ locale: 'en' }, { locale: 'de' }];
+  return [{ locale: 'en' }, { locale: 'de' }, { locale: 'fr' }, { locale: 'es' }];
 }
 
 export async function generateMetadata({
@@ -67,35 +67,35 @@ const ProjectsPage = async ({ params: { locale } }: ProjectsProps) => {
             </li>
             <li className="mb-2 flex justify-between">
               <span className="flex items-center">
-                <Star className="mr-2 h-5 w-5 text-indigo-500" />
+                <Star className="mr-2 h-5 w-5 text-primary-500" />
                 {t('stats.stars')}:
               </span>
               <span>{stats?.stars ?? '-'}</span>
             </li>
             <li className="mb-2 flex justify-between">
               <span className="flex items-center">
-                <History className="mr-2 h-5 w-5 text-indigo-500" />{' '}
+                <History className="mr-2 h-5 w-5 text-primary-500" />{' '}
                 {t('stats.commits')}:
               </span>
               <span>{stats?.totalCommits ?? '-'}</span>
             </li>
             <li className="mb-2 flex justify-between">
               <span className="flex items-center">
-                <GitPullRequest className="mr-2 h-5 w-5 text-indigo-500" />{' '}
+                <GitPullRequest className="mr-2 h-5 w-5 text-primary-500" />{' '}
                 {t('stats.prs')}:
               </span>
               <span>{stats?.prs ?? '-'}</span>
             </li>
             <li className="mb-2 flex justify-between">
               <span className="flex items-center">
-                <AlertCircle className="mr-2 h-5 w-5 text-indigo-500" />{' '}
+                <AlertCircle className="mr-2 h-5 w-5 text-primary-500" />{' '}
                 {t('stats.issues')}:
               </span>
               <span>{stats?.issues ?? '-'}</span>
             </li>
             <li className="flex justify-between">
               <span className="flex items-center">
-                <Book className="mr-2 h-5 w-5 text-indigo-500" />{' '}
+                <Book className="mr-2 h-5 w-5 text-primary-500" />{' '}
                 {t('stats.contributed')}:
               </span>
               <span>{stats?.contributions ?? '-'}</span>

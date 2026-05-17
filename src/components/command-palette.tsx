@@ -208,16 +208,31 @@ export default function CommandPalette({
           router.push(valuePath);
         }
         break;
-      case Actions.Language:
+      case Actions.Language: {
         if (pathname !== '/blog/[slug]') {
+          const locales = ['en', 'de', 'fr', 'es'];
+          const currentIndex = locales.indexOf(locale);
+          const nextLocale = locales[(currentIndex + 1) % locales.length];
           router.replace(pathname, {
-            locale: locale === 'de' ? 'en' : 'de',
+            locale: nextLocale,
           });
         }
         break;
-      case Actions.Theme:
-        setTheme(theme === 'light' ? 'dark' : 'light');
+      }
+      case Actions.Theme: {
+        const themes = [
+          'light',
+          'dark',
+          'theme-green',
+          'theme-red',
+          'theme-blind',
+        ];
+        const currentIndex = themes.indexOf(theme ?? 'light');
+        const nextTheme =
+          themes[(currentIndex + 1) % themes.length] ?? 'light';
+        setTheme(nextTheme);
         break;
+      }
       case Actions.Session:
         if (value.slice(2) === '') {
           void signOut({ callbackUrl: url.toString() });
@@ -290,7 +305,7 @@ export default function CommandPalette({
                       value={`${page.action}:${page.args}`}
                       className={clsx(
                         'cursor-pointer px-4 py-2 sm:border-l-2',
-                        'data-[focus]:border-l-indigo-500 dark:data-[focus]:border-l-indigo-500 data-[focus]:sm:bg-gray-200 data-[focus]:sm:dark:bg-gray-700',
+                        'data-[focus]:border-l-primary-500 dark:data-[focus]:border-l-primary-500 data-[focus]:sm:bg-gray-200 data-[focus]:sm:dark:bg-gray-700',
                         'border-gray-50 bg-gray-50 dark:border-gray-800 dark:bg-gray-800',
                       )}>
                       <div className="flex flex-row pl-1 text-gray-500 dark:text-gray-400">

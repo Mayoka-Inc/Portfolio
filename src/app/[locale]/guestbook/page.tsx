@@ -18,7 +18,7 @@ interface GuestbookProps {
 }
 
 export function generateStaticParams() {
-  return [{ locale: 'en' }, { locale: 'de' }];
+  return [{ locale: 'en' }, { locale: 'de' }, { locale: 'fr' }, { locale: 'es' }];
 }
 
 export async function generateMetadata({
@@ -94,11 +94,20 @@ async function GuestbookEntries({ locale }: { locale: string }) {
     }
     if (results[1].status === 'fulfilled') {
       session = results[1].value;
+    } else {
+      const reason = results[1].reason as { $$typeof?: symbol };
+      if (reason?.$$typeof === Symbol.for('react.postpone')) {
+        throw reason;
+      }
     }
     if (results[2].status === 'fulfilled') {
       t = results[2].value as unknown as (key: string) => string;
     }
-  } catch (error) {
+  } catch (error: unknown) {
+    const err = error as { $$typeof?: symbol };
+    if (err?.$$typeof === Symbol.for('react.postpone')) {
+      throw error;
+    }
     console.error('Error loading guestbook entries:', error);
   }
 
@@ -121,7 +130,11 @@ async function GuestbookFormWrapper() {
   let session = null;
   try {
     session = await auth();
-  } catch (error) {
+  } catch (error: unknown) {
+    const err = error as { $$typeof?: symbol };
+    if (err?.$$typeof === Symbol.for('react.postpone')) {
+      throw error;
+    }
     console.error('Error fetching auth session for guestbook form:', error);
   }
   return <GuestbookForm session={session} />;

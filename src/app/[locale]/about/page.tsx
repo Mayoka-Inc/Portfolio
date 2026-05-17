@@ -17,7 +17,7 @@ interface AboutPageProps {
 }
 
 export function generateStaticParams() {
-  return [{ locale: 'en' }, { locale: 'de' }];
+  return [{ locale: 'en' }, { locale: 'de' }, { locale: 'fr' }, { locale: 'es' }];
 }
 
 export async function generateMetadata({
@@ -61,7 +61,7 @@ const AboutPage = () => {
               href="https://github.com/alex289"
               target="_blank"
               rel="noreferrer noopener"
-              className="text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400">
+              className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400">
               @alex289
             </a>
           </li>
@@ -71,7 +71,7 @@ const AboutPage = () => {
               href="https://twitter.com/_alex289"
               target="_blank"
               rel="noreferrer noopener"
-              className="text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400">
+              className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400">
               @_alex289
             </a>
           </li>
@@ -81,7 +81,7 @@ const AboutPage = () => {
               href={env.NEXT_PUBLIC_WEBSITE_URL}
               target="_blank"
               rel="noreferrer noopener"
-              className="text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400">
+              className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400">
               {env.NEXT_PUBLIC_WEBSITE_URL}
             </a>
           </li>
@@ -91,7 +91,7 @@ const AboutPage = () => {
               href="https://alexanderkonietzko-links.vercel.app"
               target="_blank"
               rel="noreferrer noopener"
-              className="text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400">
+              className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400">
               https://alexanderkonietzko-links.vercel.app
             </a>
           </li>
@@ -176,7 +176,7 @@ const AboutPage = () => {
               href="https://github.com/alex289/dotfiles"
               target="_blank"
               rel="noreferrer noopener"
-              className="text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400">
+              className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400">
               {t('about-page.uses.configuration')}
             </a>
             )

@@ -20,21 +20,42 @@ import type { BlogPost } from '@/lib/types';
 const Navbar = ({ posts }: { posts: BlogPost[] }) => {
   const [commandPaletteOpen, setCommandPaletteOpen] =
     useUrlState<boolean>('menu');
-  const { resolvedTheme, setTheme } = useTheme();
+  const { theme, resolvedTheme, setTheme } = useTheme();
   const t = useTranslations();
   const locale = useLocale();
   const path = usePathname();
   console.log(path);
 
   const getTranslationPath = () => {
-    const nextLocale = locale === 'de' ? 'en' : 'de';
+    const locales = ['en', 'de', 'fr', 'es'];
+    const currentIndex = locales.indexOf(locale);
+    const nextLocale = locales[(currentIndex + 1) % locales.length];
+
     if (path?.includes('/blog/')) {
       const slug = path.substring(path.lastIndexOf('/') + 1);
       const post = posts.find((post) => post.slug === slug);
       return `/${nextLocale}/blog/${post?.translation}`;
     }
-    const correctPath = path?.replace('/de', '').replace('/en', '');
+    const correctPath = path
+      ?.replace('/de', '')
+      .replace('/en', '')
+      .replace('/fr', '')
+      .replace('/es', '');
     return `/${nextLocale}${correctPath}`;
+  };
+
+  const getNextLocaleName = () => {
+    const locales = ['en', 'de', 'fr', 'es'];
+    const currentIndex = locales.indexOf(locale);
+    const nextLocale = locales[(currentIndex + 1) % locales.length] ?? 'en';
+    return nextLocale.toUpperCase();
+  };
+
+  const cycleTheme = () => {
+    const themes = ['light', 'dark', 'theme-green', 'theme-red', 'theme-blind'];
+    const currentIndex = themes.indexOf(theme ?? 'light');
+    const nextTheme = themes[(currentIndex + 1) % themes.length] ?? 'light';
+    setTheme(nextTheme);
   };
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -42,15 +63,20 @@ const Navbar = ({ posts }: { posts: BlogPost[] }) => {
   useEffect(() => setMounted(true), []);
   useEffect(() => {
     const themeColor = window.document.querySelector('meta[name=theme-color]');
+    const isDark =
+      resolvedTheme === 'dark' ||
+      resolvedTheme === 'theme-green' ||
+      resolvedTheme === 'theme-red' ||
+      resolvedTheme === 'theme-blind';
+
+    const color = isDark ? '#222222' : '#f9fafb';
+
     if (themeColor) {
-      themeColor.setAttribute(
-        'content',
-        resolvedTheme === 'dark' ? '#222222' : '#f9fafb',
-      );
+      themeColor.setAttribute('content', color);
     } else {
       const newThemeColor = window.document.createElement('meta');
       newThemeColor.name = 'theme-color';
-      newThemeColor.content = resolvedTheme === 'dark' ? '#222222' : '#f9fafb';
+      newThemeColor.content = color;
       window.document.head.appendChild(newThemeColor);
     }
   }, [resolvedTheme]);
@@ -98,6 +124,9 @@ const Navbar = ({ posts }: { posts: BlogPost[] }) => {
       className={clsx(
         !commandPaletteOpen && 'z-50',
         'sticky top-0 bg-gray-50 bg-opacity-50 backdrop-blur-lg dark:bg-gray-800 dark:bg-opacity-60',
+        resolvedTheme === 'theme-green' && 'theme-green',
+        resolvedTheme === 'theme-red' && 'theme-red',
+        resolvedTheme === 'theme-blind' && 'theme-blind',
       )}>
       <nav
         className={clsx(
@@ -113,7 +142,7 @@ const Navbar = ({ posts }: { posts: BlogPost[] }) => {
               className={clsx(
                 'invisible mr-1 text-gray-900 sm:mr-8 md:visible',
                 path?.includes(href) && !(path.length > 3 && href === '/')
-                  ? 'font-semibold dark:text-indigo-500'
+                  ? 'font-semibold dark:text-primary-500'
                   : 'dark:text-gray-100',
               )}>
               <span className="dark:link-underline link-underline-black py-1">
@@ -149,24 +178,21 @@ const Navbar = ({ posts }: { posts: BlogPost[] }) => {
             </button>
             <button
               id="dark-mode-toggle"
-              aria-label="Toggle Dark Mode"
+              aria-label="Toggle Theme"
               type="button"
               data-umami-event="theme-switcher-click"
               className="mr-1 h-10 w-10 rounded-lg bg-gray-200 p-3 ring-gray-300 hover:ring-4 dark:bg-gray-700 md:mr-3"
-              onClick={() =>
-                setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')
-              }>
+              onClick={cycleTheme}>
               {mounted && <ThemeToggleIcon theme={resolvedTheme} />}
             </button>
             <Link
               href={getTranslationPath()}
               scroll={false}
               shallow
-              locale={locale === 'de' ? 'en' : 'de'}
               data-umami-event="language-switcher-click"
               id="switch-lang"
               className="md:dark:link-underline md:link-underline-black mx-3 pb-1 text-lg tracking-wide">
-              {locale === 'de' ? 'EN' : 'DE'}
+              {getNextLocaleName()}
             </Link>
           </div>
         </div>

@@ -21,7 +21,7 @@ interface DashboardProps {
 }
 
 export function generateStaticParams() {
-  return [{ locale: 'en' }, { locale: 'de' }];
+  return [{ locale: 'en' }, { locale: 'de' }, { locale: 'fr' }, { locale: 'es' }];
 }
 
 export function generateMetadata(): Metadata {

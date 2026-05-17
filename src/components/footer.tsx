@@ -108,7 +108,7 @@ export default function Footer() {
           id="powered-by">
           {t('footer.powered')}
           <a
-            className="text-indigo-500"
+            className="text-primary-500"
             target="_blank"
             rel="noopener noreferrer"
             href="https://nextjs.org/">
@@ -116,7 +116,7 @@ export default function Footer() {
           </a>{' '}
           {t('footer.and')}
           <a
-            className="text-indigo-500"
+            className="text-primary-500"
             target="_blank"
             rel="noopener noreferrer"
             href="https://tailwindcss.com/">
@@ -124,7 +124,7 @@ export default function Footer() {
           </a>
           . {t('footer.hosted')}{' '}
           <a
-            className="text-indigo-500"
+            className="text-primary-500"
             target="_blank"
             rel="noopener noreferrer"
             href="https://vercel.com/">

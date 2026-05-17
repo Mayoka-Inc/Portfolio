@@ -86,7 +86,7 @@ export default function MobileMenu({ isMenuOpen, toggle }: Props) {
               key={link.id}
               className={clsx(
                 'ml-3 cursor-pointer border-b border-gray-300 dark:border-gray-700',
-                path === link.href && 'font-semibold dark:text-indigo-500',
+                path === link.href && 'font-semibold dark:text-primary-500',
               )}
               style={{ transitionDelay: link.transitionDelay }}>
               <div

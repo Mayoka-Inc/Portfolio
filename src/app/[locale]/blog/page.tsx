@@ -1,3 +1,5 @@
+import { Suspense } from 'react';
+
 import env from '@/env.mjs';
 import PostList from '@/components/blog/post-list';
 import { getBlogPosts } from '@/lib/blog';
@@ -5,7 +7,7 @@ import { getBlogPosts } from '@/lib/blog';
 import type { Metadata } from 'next/types';
 
 export function generateStaticParams() {
-  return [{ locale: 'en' }, { locale: 'de' }];
+  return [{ locale: 'en' }, { locale: 'de' }, { locale: 'fr' }, { locale: 'es' }];
 }
 
 export function generateMetadata(): Metadata {
@@ -21,7 +23,11 @@ export function generateMetadata(): Metadata {
 }
 
 const BlogPage = () => {
-  return <PostList allBlogs={getBlogPosts()} />;
+  return (
+    <Suspense>
+      <PostList allBlogs={getBlogPosts()} />
+    </Suspense>
+  );
 };
 
 export default BlogPage;

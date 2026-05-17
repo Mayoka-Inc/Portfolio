@@ -1,0 +1,143 @@
+{
+  "main": {
+    "home": "Inicio",
+    "about": "Sobre mí",
+    "projects": "Proyectos"
+  },
+  "footer": {
+    "my-setup": "Mis dotfiles",
+    "sourcecode": "Código fuente",
+    "contact": "Contacto",
+    "analytics": "Analítica",
+    "sitemap": "Mapa del sitio",
+    "powered": "Desarrollado con ",
+    "and": "y ",
+    "hosted": "Alojado en "
+  },
+  "index-page": {
+    "title": "Ingeniero de Software y Estudiante en",
+    "intro": "Intentando construir una web más rápida. Aprendiendo sobre desarrollo web, .NET Core y React / Next.js.",
+    "posts": {
+      "read-all": "Leer todos los artículos",
+      "1": {
+        "title": "Commit inicial",
+        "slug": "initial-commit"
+      },
+      "2": {
+        "title": "La mejor configuración de terminal PowerShell",
+        "slug": "terminal-setup"
+      },
+      "3": {
+        "title": "¿Cómo desplegar una aplicación web Fullstack en Vercel?",
+        "slug": "vercel-deployment"
+      }
+    }
+  },
+  "about-page": {
+    "text-1": "Hola, soy Alex. Tengo {age} años \ny soy de Alemania. Vivo en NRW y paso mi tiempo libre \ntocando el piano, haciendo deporte o disfrutando con amigos y familiares.",
+    "text-2": "Empecé a trabajar con ordenadores desde joven y comencé a \nprogramar en la escuela. Después de graduarme, empecé mi estudio dual en \nNetgo GmbH, donde trabajo, y en la Westfälische Hochschule, donde estudio.",
+    "text-3": "Actualmente estoy aprendiendo .NET Core y Angular, pero mi framework favorito es \nNextJs. En el futuro quiero construir mi propio clúster de Kubernetes con \nservicios backend, integración de bases de datos y un frontend sólido combinados \npor Nginx.",
+    "website": "Sitio web",
+    "tools": {
+      "title": "Herramientas",
+      "text": "Estas son las herramientas que utilizo casi a diario. Realmente disfruto encontrando nuevas tecnologías que mejoren mi flujo de trabajo.",
+      "tailwind": "Cuando se trata de CSS, siempre uso TailwindCSS. Es una gran herramienta para dar estilo a tu sitio web muy rápido.",
+      "next": "Mi framework de referencia para construir aplicaciones web. La calidad del código es fantástica.",
+      "vercel": "La forma más sencilla de desplegar tu sitio web. Lo uso para todos mis proyectos.",
+      "vscode": "VS Code es el editor de texto al que recurro con más frecuencia, dada su gama de extensiones."
+    },
+    "uses": {
+      "title": "Mi Equipo",
+      "text": "Aquí está la tecnología que uso actualmente para programar. La mayor parte se ha acumulado en los últimos años.",
+      "office": "Estación de trabajo",
+      "other-tech": "Otra tecnología",
+      "and": "y",
+      "configuration": "Configuración"
+    },
+    "timeline": {
+      "title": "Trayectoria",
+      "learn-more": "Saber más sobre netgo",
+      "1": {
+        "date": "Julio 2021",
+        "title": "Graduación escolar",
+        "description": "Terminé la escuela :D"
+      },
+      "2": {
+        "title": "Estudio dual en netgo / Westfälische Hochschule",
+        "description": "Comencé mi primer trabajo como aprendiz de ingeniero de software en netgo. En combinación, estudié sistemas de software (Informática, B. SC.)."
+      }
+    }
+  },
+  "404": {
+    "title": "Página no encontrada",
+    "description": "¿Por qué mostrar un 404 genérico cuando puedo hacer que suene misterioso? Parece \nque has encontrado algo que existía, o escribiste \nalgo mal. Supongo que escribiste algo mal. ¿Puedes \nverificar esa URL?",
+    "return-home": "Volver al inicio"
+  },
+  "error": {
+    "title": "Algo salió mal",
+    "description": "Lo siento, pero algo salió mal. Por favor, inténtalo de nuevo más tarde.",
+    "return-home": "Volver al inicio"
+  },
+  "blog": {
+    "description": "He estado escribiendo en línea desde 2022, principalmente sobre desarrollo web y cosas variadas. En total, he escrito {amount} artículos en mi blog. Usa el buscador de abajo para filtrar por título.",
+    "no-posts": "No se encontraron artículos.",
+    "all-posts": "Todos los artículos",
+    "search": "Buscar",
+    "filter": {
+      "by-name": "Por nombre",
+      "by-tag": "Por etiqueta"
+    },
+    "views": "vistas",
+    "reading-time": "Lectura de {minutes} min"
+  },
+  "guestbook": {
+    "title": "Libro de visitas",
+    "login": "Iniciar sesión con ",
+    "logout": "Cerrar sesión",
+    "form": {
+      "title": "Firmar el libro de visitas",
+      "description": "Comparte un mensaje para un futuro visitante de mi sitio.",
+      "input": "Tu mensaje...",
+      "submit": "Enviar",
+      "info": "Tu información solo se usa para mostrar tu nombre."
+    },
+    "success": "¡Genial! Gracias por firmar mi libro de visitas.",
+    "error": "Por favor, introduce un mensaje.",
+    "delete": "Eliminar"
+  },
+  "dashboard": {
+    "unauthorized": "No estás autorizado para ver esta página.",
+    "logout": "Cerrar sesión",
+    "logged-in": "Sesión iniciada como",
+    "stats": "Estadísticas",
+    "top-tracks": "Mejores canciones de Spotify",
+    "metrics": {
+      "blog-views": "Vistas del blog",
+      "guestbook-entries": "Entradas del libro de visitas",
+      "posts-count": "Cantidad de todos los artículos (EN)"
+    }
+  },
+  "projects": {
+    "not-found": "No se encontraron proyectos",
+    "see-more": "Ver todos los proyectos",
+    "all-repos": "Todos los repositorios"
+  },
+  "not-playing": "No se está reproduciendo nada",
+  "command-palette": {
+    "settings": "Ajustes",
+    "socials": "Redes sociales",
+    "switch-theme": "Cambiar tema",
+    "switch-language": "Cambiar idioma (es)",
+    "search-placeholder": "Buscar...",
+    "no-results": "Sin resultados"
+  },
+  "stats": {
+    "title": "Mis estadísticas de GitHub",
+    "stars": "Total de estrellas obtenidas",
+    "commits": "Total de commits",
+    "prs": "Total de PRs",
+    "issues": "Total de issues",
+    "contributed": "Contribuido a",
+    "top-languages": "Lenguajes principales"
+  }
+}

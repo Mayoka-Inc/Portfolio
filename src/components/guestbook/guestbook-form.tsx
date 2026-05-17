@@ -112,7 +112,7 @@ export default function GuestbookForm({
               maxLength={100}
               type="text"
               disabled={form.state === Form.Loading}
-              className="mt-1 block w-full rounded-md border border-blue-50 bg-white py-2 pl-4 pr-32 text-gray-900 focus:border-indigo-500 focus:ring-indigo-500 dark:border-blue-opaque dark:bg-gray-800 dark:text-gray-100"
+              className="mt-1 block w-full rounded-md border border-blue-50 bg-white py-2 pl-4 pr-32 text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-blue-opaque dark:bg-gray-800 dark:text-gray-100"
             />
             <button
               className="absolute right-1 top-1 flex h-8 w-28 items-center justify-center rounded bg-gray-100 px-4 py-1 font-medium text-gray-900 dark:bg-gray-700 dark:text-gray-100"
