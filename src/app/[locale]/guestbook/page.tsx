@@ -37,22 +37,27 @@ export async function generateMetadata({
 }
 
 async function getGuestbook() {
-  const data = await db
-    .select({
-      id: guestbook.id,
-      body: guestbook.body,
-      email: guestbook.email,
-      created_by: guestbook.created_by,
-      updated_at: guestbook.updated_at,
-    })
-    .from(guestbook)
-    .orderBy(desc(guestbook.updated_at))
-    .limit(100)
-    .execute();
+  try {
+    const data = await db
+      .select({
+        id: guestbook.id,
+        body: guestbook.body,
+        email: guestbook.email,
+        created_by: guestbook.created_by,
+        updated_at: guestbook.updated_at,
+      })
+      .from(guestbook)
+      .orderBy(desc(guestbook.updated_at))
+      .limit(100)
+      .execute();
 
-  return data.map((entry) => {
-    return { ...entry, updated_at: entry.updated_at.toISOString() };
-  });
+    return data.map((entry) => {
+      return { ...entry, updated_at: entry.updated_at.toISOString() };
+    });
+  } catch (error) {
+    console.error('Failed to fetch guestbook entries:', error);
+    return [];
+  }
 }
 
 const GuestbookPage = ({ params: { locale } }: GuestbookProps) => {
@@ -67,15 +72,39 @@ const GuestbookPage = ({ params: { locale } }: GuestbookProps) => {
 };
 
 async function GuestbookEntries({ locale }: { locale: string }) {
-  const [entries, session, t] = await Promise.all([
-    getGuestbook(),
-    auth(),
-    getTranslations({ locale, namespace: 'guestbook' }),
-  ]);
+  let entries: {
+    id: number;
+    body: string;
+    email: string;
+    created_by: string;
+    updated_at: string;
+  }[] = [];
+  let session = null;
+  let t = (key: string) => key;
+
+  try {
+    const results = await Promise.allSettled([
+      getGuestbook(),
+      auth(),
+      getTranslations({ locale, namespace: 'guestbook' }),
+    ]);
+
+    if (results[0].status === 'fulfilled') {
+      entries = results[0].value;
+    }
+    if (results[1].status === 'fulfilled') {
+      session = results[1].value;
+    }
+    if (results[2].status === 'fulfilled') {
+      t = results[2].value as unknown as (key: string) => string;
+    }
+  } catch (error) {
+    console.error('Error loading guestbook entries:', error);
+  }
 
   return (
     <div className="mt-4 space-y-8">
-      {entries?.map((entry) => (
+      {entries.map((entry) => (
         <GuestbookEntry
           key={entry.id.toString()}
           entry={entry}
@@ -89,7 +118,12 @@ async function GuestbookEntries({ locale }: { locale: string }) {
 }
 
 async function GuestbookFormWrapper() {
-  const session = await auth();
+  let session = null;
+  try {
+    session = await auth();
+  } catch (error) {
+    console.error('Error fetching auth session for guestbook form:', error);
+  }
   return <GuestbookForm session={session} />;
 }
 

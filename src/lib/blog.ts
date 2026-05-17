@@ -26,12 +26,12 @@ function getMDXData(dir: string): BlogPost[] {
     const validatedData = BlogPostSchema.parse({
       content,
       slug,
-      title: data.title,
-      translation: data.translation,
-      publishedAt: data.publishedAt,
-      summary: data.summary,
-      language: data.language,
-      tags: data.tags,
+      title: data.title as string,
+      translation: data.translation as string | undefined,
+      publishedAt: data.publishedAt as string,
+      summary: data.summary as string,
+      language: data.language as string,
+      tags: data.tags as string[],
       readingTime: Math.round(readingTime(content).minutes),
     });
 

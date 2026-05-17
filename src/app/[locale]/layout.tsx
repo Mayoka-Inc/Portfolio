@@ -128,7 +128,12 @@ export default async function RootLayout({
   } catch (error) {
     notFound();
   }
-  const session = await auth();
+  let session = null;
+  try {
+    session = await auth();
+  } catch (error) {
+    console.error('Error fetching auth session in layout:', error);
+  }
 
   return (
     <html
