@@ -1,3 +1,19 @@
+import { z } from 'zod';
+
+export const BlogPostSchema = z.object({
+  content: z.string(),
+  title: z.string(),
+  translation: z.string().optional(),
+  publishedAt: z.string(),
+  summary: z.string(),
+  language: z.string(),
+  tags: z.array(z.string()),
+  slug: z.string(),
+  readingTime: z.number(),
+});
+
+export type BlogPost = z.infer<typeof BlogPostSchema>;
+
 export interface NowPlayingSong {
   album: string;
   albumImageUrl: string;
@@ -72,14 +88,3 @@ export interface ResponseTrackType {
   };
 }
 
-export interface BlogPost {
-  content: string;
-  title: string;
-  translation: string;
-  publishedAt: string;
-  summary: string;
-  language: string;
-  tags: string[];
-  slug: string;
-  readingTime: number;
-}
